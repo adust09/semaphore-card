@@ -14,3 +14,6 @@ node scripts/sample-script.js
 npx hardhat help
 ```
 # Semaphore-cardgame
+```
+$yarn dev
+```
