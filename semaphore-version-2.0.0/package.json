@@ -1,0 +1,36 @@
+{
+  "name": "semaphore",
+  "version": "1.0.0",
+  "description": "Solidity contracts, zk-SNARK circuits, and test scripts for the Semaphore zero-knowledge signalling gadget. This version uses the Poseidon hash and does not use EdDSA signatures.",
+  "scripts": {
+    "test": "ts-node test/verify.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/appliedzkp/semaphore.git.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/appliedzkp/semaphore.git/issues"
+  },
+  "homepage": "https://github.com/appliedzkp/semaphore.git#readme",
+  "dependencies": {
+    "circomlib": "^0.5.3",
+    "libsemaphore": "github:appliedzkp/libsemaphore",
+    "web3": "^1.5.2"
+  },
+  "devDependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.0.2",
+    "@nomiclabs/hardhat-waffle": "^2.0.1",
+    "chai": "^4.3.4",
+    "ethereum-waffle": "^3.4.0",
+    "ethers": "^5.4.6",
+    "hardhat": "^2.6.1",
+    "http-server": "^13.0.1",
+    "snarkjs": "^0.4.6",
+    "ts-node": "^10.2.1",
+    "typescript": "^4.4.2"
+  }
+}
