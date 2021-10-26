@@ -13,6 +13,7 @@
     "@interrep/reputation-criteria": "^0.10.0",
     "@interrep/semethid": "^0.8.1",
     "@metamask/detect-provider": "^1.2.0",
+    "@types/cors": "^2.8.12",
     "circomlib": "0.5.4",
     "cors": "^2.8.5",
     "hardhat": "^2.6.4",
