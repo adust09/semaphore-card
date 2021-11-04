@@ -1,12 +1,14 @@
 import { Contract } from "ethers";
 import { ContractName } from "src/config";
-import { getContractInstance } from "src/utils/common/getContractInstance";
+import getContractInstance from "src/utils/common/getContractInstance";
 import getSigner from "src/utils/backend/getSigner";
 
 export default async function getBackendContractInstance(
   contractName: ContractName,
-  signer?: string
+  contractAddress: string
 ): Promise<Contract> {
-  const signerInstance = await getSigner(signer);
-  return getContractInstance(contractName, signerInstance);
+  const contractInstance = getContractInstance(contractName, contractAddress);
+  const signer = await getSigner();
+
+  return contractInstance.connect(signer);
 }
