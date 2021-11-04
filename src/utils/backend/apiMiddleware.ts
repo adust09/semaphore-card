@@ -1,5 +1,9 @@
 import { NextApiRequest, NextApiResponse } from "next";
 
+/**
+ * Helper method to wait for a middleware to execute before continuing
+ * and to throw an error when an error happens in a middleware.
+ */
 export default function apiMiddleware(
   middleware: (
     req: NextApiRequest,
@@ -7,12 +11,13 @@ export default function apiMiddleware(
     next: (err?: any) => any
   ) => void
 ) {
-  return (req: NextApiRequest, res: NextApiResponse, next: any) =>
+  return (req: NextApiRequest, res: NextApiResponse) =>
     new Promise((resolve, reject) => {
       middleware(req, res, (result) => {
-        if (reject instanceof Error) {
+        if (result instanceof Error) {
           return reject(result);
         }
+
         return resolve(result);
       });
     });

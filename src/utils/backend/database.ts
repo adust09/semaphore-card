@@ -3,6 +3,8 @@ import config from "src/config";
 import logger from "./logger";
 
 export async function dbConnect() {
+  // check if we have a connection to the database or if it's currently
+  // connecting or disconnecting (readyState 1, 2 and 3)
   if (mongoose.connection.readyState >= 1) {
     return;
   }
@@ -26,6 +28,10 @@ export async function dbConnect() {
     .catch((error) => logger.error(error));
 
   const database = mongoose.connection;
+
+  database.once("open", () => {
+    logger.info("🗄️ Connected to database");
+  });
 
   database.on("error", (err) => {
     logger.error("Database connection error:", err);
